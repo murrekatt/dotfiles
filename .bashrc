@@ -1,1 +1,1 @@
-linux/.bashrc
+platform/.bashrc

@@ -1,1 +1,1 @@
-linux/.bash_profile
+platform/.bash_profile
