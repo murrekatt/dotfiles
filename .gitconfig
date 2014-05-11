@@ -78,3 +78,5 @@
 [user]
 	name = Tommy Back
 	email = tommy.jh.back@gmail.com
+[push]
+	default = simple
