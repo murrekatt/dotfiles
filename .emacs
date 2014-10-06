@@ -47,12 +47,14 @@
      (setq ns (read-string "Namespace: "))
      )
   '(setq namespaces (reverse namespaces))
-  '(setq header_guard "__")
+  '(setq header_guard "")
   '(dotimes (index (list-length namespaces))
-     (setq header_guard (concat header_guard (upcase (nth index namespaces)) "_"))
+     (setq header_guard (concat header_guard (upcase (nth index namespaces))))
+     (if (< index (list-length (butlast namespaces 1)))
+	 (setq header_guard (concat header_guard "_"))
+       )
      )
   '(setq name (replace-regexp-in-string "\\." "_" (buffer-name)))
-  '(setq header_guard (concat header_guard (upcase name) "__"))
   (insert (concat "#ifndef " header_guard "\n"))
   (insert (concat "#define " header_guard "\n\n\n"))
   (insert (concat "#endif // " header_guard "\n"))
@@ -105,7 +107,7 @@
  (set (make-local-variable 'tab-stop-list) (nreverse ls))))
 
 (defun my-c-mode-common-hook ()
-(setq tab-width 2)
+(setq tab-width 4)
 (my-build-tab-stop-list tab-width)
 (setq c-basic-offset tab-width)
 (setq indent-tabs-mode nil)) ;; force only spaces for indentation
@@ -125,6 +127,8 @@
 (c-set-offset 'cpp-define-intro '+)
 (c-set-offset 'brace-list-open '0)
 (c-set-offset 'label '0)
+;;(c-set-offset 'arglist-cont-nonempty 8)
+(c-set-offset 'arglist-intro '+)
 
 ;; Enable global font lock
 (global-font-lock-mode t)
@@ -143,3 +147,5 @@
   (setq auto-mode-alist
         (append '(("\\.proto\\'" . protobuf-mode))
                 auto-mode-alist))
+
+(require 'go-mode)
