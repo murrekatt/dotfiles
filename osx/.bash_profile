@@ -1,6 +1,9 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:/usr/local/opt/qt5/bin"
+export PATH="$PATH:/usr/local/go/bin"
+
+export GOPATH=$HOME/go
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
