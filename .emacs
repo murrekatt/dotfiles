@@ -113,6 +113,9 @@
 (setq indent-tabs-mode nil)) ;; force only spaces for indentation
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
+;; highlight lines over 80 characters long
+(add-hook 'find-file-hook '(lambda () (highlight-lines-matching-regexp ".\\{81\\}" 'hi-green-b)))
+
 ;; personal preferences
 (c-set-offset 'cpp-define-intro' 0)
 ;;(c-set-offset 'defun-block-intro' 0)
