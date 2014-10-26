@@ -10,7 +10,20 @@ fi
 
 cd $HOME
 
-files="aliases bash_profile bash_prompt bashrc bash_logout emacs emacs.d exports gitconfig hushlogin inputrc screenrc wgetrc"
+files="\
+aliases\
+bash_profile\
+bash_prompt\
+bashrc\
+bash_logout\
+emacs\
+emacs.d\
+exports\
+gitconfig\
+hushlogin\
+inputrc\
+screenrc\
+wgetrc"
 
 for l in $files ; do
   if [[ -h .$l ]] ; then
