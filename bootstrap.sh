@@ -1,5 +1,11 @@
 #!/bin/sh
 
+dir="dotfiles"
+
+if [[ "$1" != "" ]] ; then
+    dir=$1
+fi
+
 # set link for platform specific files
 rm -f platform
 if [[ `uname` -eq "Darwin" ]] ; then
@@ -11,27 +17,26 @@ fi
 cd $HOME
 
 files="\
-aliases\
-bash_profile\
-bash_prompt\
-bashrc\
-bash_logout\
-emacs\
-emacs.d\
-exports\
-gitconfig\
-hushlogin\
-inputrc\
-screenrc\
-wgetrc"
+  aliases\
+  bash_profile\
+  bash_prompt\
+  bashrc\
+  bash_logout\
+  emacs\
+  emacs.d\
+  exports\
+  gitconfig\
+  hushlogin\
+  inputrc\
+  screenrc\
+  wgetrc"
 
 for l in $files ; do
-  if [[ -h .$l ]] ; then
-    rm .$l
-  elif [[ -f .$l || -d .$l ]] ; then
-    mkdir -p tmp
-    mv .$l tmp/
-  fi
-  ln -s dotfiles/.$l .$l
+    if [[ -h .$l ]] ; then
+	rm .$l
+    elif [[ -f .$l || -d .$l ]] ; then
+	mkdir -p tmp
+	mv .$l tmp/
+    fi
+    ln -s $dir/.$l .$l
 done
-
