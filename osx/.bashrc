@@ -3,6 +3,8 @@
 export PATH="/usr/local/heroku/bin:$PATH"
 # add go bin to path
 export PATH="$HOME/go/bin:$PATH"
+# add go app engine bin to path
+export PATH="$HOME/go_appengine:$PATH"
 # add $HOME/bin
 export PATH=$HOME/bin:$PATH
 
