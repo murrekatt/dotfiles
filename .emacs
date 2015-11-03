@@ -145,12 +145,8 @@
                 auto-mode-alist))
 
 ;; ----------------------------------------------------------------------------
-;; Google Protobuf
-(require 'protobuf-mode)
-  (setq auto-mode-alist
-        (append '(("\\.proto\\'" . protobuf-mode))
-                auto-mode-alist))
 
 (require 'go-mode)
+(require 'markdown-mode)
 
 (add-hook 'before-save-hook #'gofmt-before-save)
