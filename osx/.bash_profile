@@ -47,3 +47,12 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 [[ -s ~/.bashrc ]] && source ~/.bashrc
+
+export iOSOpenDevPath=/opt/iOSOpenDev
+export iOSOpenDevDevice=
+export PATH=/opt/iOSOpenDev/bin:$PATH
+
+
+
+
+
