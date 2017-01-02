@@ -5,7 +5,7 @@ function git-branch-name
 
 function git-dirty {
     st=$(git status 2>/dev/null | tail -1)
-    if [[ $st != "nothing to commit, working directory clean" ]] ; then
+    if [[ $st != "nothing to commit, working tree clean" ]] ; then
         echo "*"
     fi
 }
